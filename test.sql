@@ -18,3 +18,11 @@ SELECT * FROM server_process_items;
 INSERT INTO server_process_items (work_id, item_data, process_type) VALUES (0, 'request token!', 1);
 -- send work finish
 INSERT INTO server_process_items (work_id, item_data, process_type) VALUES (958169357, 'request token!', 2);
+
+-- clean users
+DELETE FROM connected_users;
+-- clean works
+DELETE FROM client_process_items;
+DELETE FROM server_process_items;
+DELETE FROM current_works WHERE work_id!=0;
+

@@ -11,8 +11,9 @@ CREATE TABLE connected_users(
 DROP TABLE IF EXISTS current_works;
 CREATE TABLE current_works(
     work_id INT UNSIGNED PRIMARY KEY,
-    work_progress FLOAT,
-    current_work_type INT
+    work_progress FLOAT NOT NULL,
+    current_work_type INT NOT NULL,
+    message VARCHAR(1024)
 );
 
 
@@ -21,7 +22,7 @@ CREATE TABLE server_process_items(
     item_id INT UNSIGNED AUTO_INCREMENT,
     work_id INT UNSIGNED,
     item_data VARCHAR(2048) NOT NULL,
-    process_type INT,
+    process_type INT NOT NULL,
     PRIMARY KEY(item_id, work_id),
     FOREIGN KEY(work_id) REFERENCES current_works(work_id)
 );
@@ -34,7 +35,7 @@ CREATE TABLE client_process_items(
     item_id INT UNSIGNED AUTO_INCREMENT,
     work_id INT UNSIGNED,
     item_data VARCHAR(2048) NOT NULL,
-    process_type INT,
+    process_type INT NOT NULL,
     PRIMARY KEY(item_id, work_id),
     FOREIGN KEY(work_id) REFERENCES current_works(work_id)
 );
