@@ -41,7 +41,7 @@ CREATE TABLE client_process_items(
 );
 
 -- 创建服务器用户
-CREATE USER 'recon3d_server'@'%' IDENTIFIED BY 'recon3d';
+CREATE USER 'recon3d_server'@'%' IDENTIFIED BY '3drecon';
 GRANT ALL ON bridge_recon_fix.* TO 'recon3d_server'@'%' WITH GRANT OPTION;
 -- 创建客户端用户
 CREATE USER 'recon3d_client'@'%' IDENTIFIED BY '666666';
